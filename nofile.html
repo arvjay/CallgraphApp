@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No File or Directory submitted or no Environment provided...</title>
+</head>
+<body>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function acknowledge() {
+            $.get("http://localhost:3000", 
+            function (body, response, error) {
+                document.write(body);
+                document.close();  
+            });
+        }
+    </script>
+    <h1>No File or Directory submitted or no Environment provided...</h1>
+    <p></p>
+    <button id = "acknowledge" onclick="acknowledge()">OK</button>
+</body>
+</html>

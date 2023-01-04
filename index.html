@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fleek Demo</title>
+</head>
+<body>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function retrieveInfo() {
+            var fileStructure = document.getElementById('fileStructure').value;
+            var environment = document.getElementById('environment').value;
+            var keywordList = document.getElementById('filter').value;
+            $.post("http://localhost:3000/submit?fileStructure=" + fileStructure + 
+                "&environment=" + environment + "&keywords=" + keywordList, 
+                function (body, response, error) {
+                    document.write(body);
+                    document.close();
+                });
+        }
+    </script>
+    <script type="text/javascript" src="server.js"></script>
+    <h1>Enter the File or Directory Structure</h1>
+    <p></p>
+    <input type = "text" id = "fileStructure"> Enter the Absolute Path of a Directory or File</input>
+    <p></p>
+    <input type = "text" id = "environment"> Enter the Absolute Path to a Virtual Environment with the Necessary Packages Installed</input>
+    <p></p>
+    <input type = "text" id = "filter"> (Optional) Filter by Comma Separated Keywords</input>
+    <p></p>
+    <button id = "sendInfo" onclick="retrieveInfo()">Confirm</button>
+</body>
+</html>
